@@ -6,9 +6,6 @@ import argparse
 import librosa
 import os
 
-# Constants
-SAMPLING_RATE = 22050
-
 def load_datasets(languages):
     data = []
     for language in languages:
@@ -53,7 +50,7 @@ def mono_to_stereo(wav):
     return wav.flatten()
 
 
-def resample(wav, audio_type, rate, target_rate=SAMPLING_RATE):
+def resample(wav, audio_type, rate, target_rate):
     if audio_type == "mono":
         return librosa.resample(wav, orig_sr=rate, target_sr=target_rate)
     else: 
